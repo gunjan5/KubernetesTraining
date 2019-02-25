@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excuse-deployment
+  labels:
+    app: excuse
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: excuse
+  template:
+    metadata:
+      labels:
+        app: excuse
+    spec:
+      containers:
+      - name: excuse
+        image: gunjan5/excuse:v1.0
+        ports:
+        - containerPort: 8080
